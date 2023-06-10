@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang = en>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Register two step verification</title>
+    </head>
+    <body>
+        <div>
+            <h1>Register two step verification</h1>
+            <img id="qrcode_image" src='<%= qrcodeUrl %>'/>
+        </div>
+        <div>
+            <button type="button" id="verification_button" onClick="window.location.href='/register/verify_secret_key?user=<%=user%>'">Verify Key</button>
+        </div>
+    </body>
+
+</html>
