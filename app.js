@@ -2,6 +2,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const path = require('path');
+const router = require('./routes/render-router');
+const logoutRouter = require('./routes/logout-router');
+const loginRouter = require('./routes/login-router');
+const registerRouter = require('./routes/register-router');
 
 
 require('dotenv').config();
@@ -21,6 +25,10 @@ app.use(express.urlencoded({ extended:true }));
 app.use(cookieParser());
 app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'ejs');
+app.use(router);
+app.use('/register', registerRouter);
+app.use('/login', loginRouter);
+app.use('/logout', logoutRouter);
 
 process.on('uncaughtException', (error) => {
     console.error(`Uncaught Exception:${error.message}`);
